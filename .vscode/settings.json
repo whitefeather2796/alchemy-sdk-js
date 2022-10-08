@@ -1,6 +1,6 @@
 {
-    "svn.ignoreMissingSvnWarning": true,
-    "netbeans.javaSupport.enabled": true,
-    "abl.warnConfigFile": false,
-    "compile-hero.disable-compile-files-on-did-save-code": false
+  "svn.ignoreMissingSvnWarning": true,
+  "netbeans.javaSupport.enabled": true,
+  "abl.warnConfigFile": false,
+  "compile-hero.disable-compile-files-on-did-save-code": false
 }
