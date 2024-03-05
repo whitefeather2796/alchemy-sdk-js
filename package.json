@@ -67,7 +67,7 @@
     "@ethersproject/wallet": "^5.7.0",
     "@ethersproject/web": "^5.7.0",
     "alchemy": "^0.0.8",
-    "axios": "^0.26.1",
+    "axios": "^0.28.0",
     "remixd": "^0.2.4",
     "sturdy-websocket": "^0.2.1",
     "websocket": "^1.0.34"
