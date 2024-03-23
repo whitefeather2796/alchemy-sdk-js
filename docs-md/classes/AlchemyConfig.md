@@ -13,10 +13,10 @@ exposes the underlying providers for more advanced use cases.
 
 ### Properties
 
-- [apiKey](AlchemyConfig.md#apikey)
+- [apiKey](AlchemyConfig.md#OuiCkjvuZNbM81nXZv8kzygQ6A5AmY_j)
 - [maxRetries](AlchemyConfig.md#maxretries)
-- [network](AlchemyConfig.md#network)
-- [url](AlchemyConfig.md#url)
+- [network](AlchemyConfig.md#ethereum)
+- [url](AlchemyConfig.md#https://eth-mainnet.g.alchemy.com/v2/OuiCkjvuZNbM81nXZv8kzygQ6A5AmY_j)
 
 ### Methods
 
