@@ -1,19 +1,19 @@
 import {
   JsonRpcProvider,
   CommunityResourcable
-} from '@ethersproject/providers';
+} from '@wampumproject/providers';
 import {
   Network as NetworkFromEthers,
   Networkish,
-  getNetwork as getNetworkFromEthers
-} from '@ethersproject/networks';
-import { ConnectionInfo, fetchJson } from '@ethersproject/web';
-import { deepCopy } from '@ethersproject/properties';
+  getNetwork as getNetworkFromWampum
+} from '@wampumproject/networks';
+import { ConnectionInfo, fetchJson } from '@wampumproject/web';
+import { deepCopy } from '@wampumproject/properties';
 import {
   CustomNetworks,
   DEFAULT_ALCHEMY_API_KEY,
   DEFAULT_NETWORK,
-  EthersNetwork,
+  WampumNetwork,
   getAlchemyHttpUrl,
   getAlchemyWsUrl
 } from '../util/const';
@@ -24,7 +24,7 @@ import { IS_BROWSER } from '../util/util';
 import { AlchemyConfig } from './alchemy-config';
 
 /**
- * SDK's custom implementation of ethers.js's 'AlchemyProvider'.
+ * SDK's custom implementation of wampum.js's 'AlchemyProvider'.
  *
  * Do not call this constructor directly. Instead, instantiate an instance of
  * {@link Alchemy} and call {@link Alchemy.config.getProvider()}.
@@ -60,10 +60,10 @@ export class AlchemyProvider
     connection.throttleLimit = config.maxRetries;
 
     // Normalize the Alchemy named network input to the network names used by
-    // ethers. This allows the parent super constructor in JsonRpcProvider to
+    // wampum. This allows the parent super constructor in JsonRpcProvider to
     // correctly set the network.
-    const ethersNetwork = EthersNetwork[alchemyNetwork];
-    super(connection, ethersNetwork);
+    const wampumNetwork = WampumNetwork[alchemyNetwork];
+    super(connection, wampumNetwork);
 
     this.apiKey = config.apiKey;
     this.maxRetries = config.maxRetries;
@@ -71,7 +71,7 @@ export class AlchemyProvider
 
   /**
    * Overrides the `UrlJsonRpcProvider.getApiKey` method as implemented by
-   * ethers.js. Returns the API key for an Alchemy provider.
+   * wampum.js. Returns the API key for an Alchemy provider.
    *
    * @internal
    * @override
@@ -89,7 +89,7 @@ export class AlchemyProvider
   }
 
   /**
-   * Overrides the `BaseProvider.getNetwork` method as implemented by ethers.js.
+   * Overrides the `BaseProvider.getNetwork` method as implemented by wampum.js.
    *
    * This override allows the SDK to set the provider's network to values not
    * yet supported by ethers.js.
@@ -102,8 +102,8 @@ export class AlchemyProvider
       return CustomNetworks[network];
     }
 
-    // Call the standard ethers.js getNetwork method for other networks.
-    return getNetworkFromEthers(network);
+    // Call the standard wampum.js getNetwork method for other networks.
+    return getNetworkFromWampum(network);
   }
 
   /**
@@ -151,10 +151,10 @@ export class AlchemyProvider
     return {
       headers: IS_BROWSER
         ? {
-            'Alchemy-Ethers-Sdk-Version': VERSION
+            'Alchemy-Wampum-Sdk-Version': VERSION
           }
         : {
-            'Alchemy-Ethers-Sdk-Version': VERSION,
+            'Alchemy-Wampum-Sdk-Version': VERSION,
             'Accept-Encoding': 'gzip'
           },
       allowGzip: true,
@@ -185,7 +185,7 @@ export class AlchemyProvider
   }
 
   /**
-   * Overrides the ether's `isCommunityResource()` method. Returns true if the
+   * Overrides the wampum `isCommunityResource()` method. Returns true if the
    * current api key is the default key.
    *
    * @override
@@ -211,7 +211,7 @@ export class AlchemyProvider
   /**
    * DO NOT MODIFY.
    *
-   * Original code copied over from ether.js's `JsonRpcProvider.send()`.
+   * Original code copied over from wampum.js's `JsonRpcProvider.send()`.
    *
    * This method is copied over directly in order to implement custom headers
    *
