@@ -1,5 +1,5 @@
 {
-  "name": "alchemy-sdk",
+  "name": "wampum",
   "version": "2.1.0",
   "description": "Extended Ethers.js SDK for Alchemy APIs",
   "author": "Alchemy",
@@ -67,6 +67,7 @@
     "@ethersproject/wallet": "^5.7.0",
     "@ethersproject/web": "^5.7.0",
     "alchemy": "^0.0.8",
+    "alchemy-sdk": "^3.4.1",
     "axios": "^0.26.1",
     "remixd": "^0.2.4",
     "sturdy-websocket": "^0.2.1",
@@ -106,5 +107,12 @@
       "path": "dist/index.cjs.js",
       "limit": "100 kB"
     }
+  ],
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "keywords": [
+    "wampum"
   ]
 }
